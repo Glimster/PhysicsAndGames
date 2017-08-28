@@ -91,6 +91,10 @@ ipch/
 # TFS 2012 Local Workspace
 $tf/
 
+# New for VS 2015
+ *.db
+ *.opendb
+
 # Guidance Automation Toolkit
 *.gpState
 
