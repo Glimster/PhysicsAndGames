@@ -2,6 +2,7 @@
 #include "NR_StepperBase.h"
 
 using namespace std;
+
 NR_StepperBase::NR_StepperBase( vector< double >& y,
                                 vector< double >& dydx,
                                 double& x,

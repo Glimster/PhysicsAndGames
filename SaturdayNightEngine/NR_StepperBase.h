@@ -1,3 +1,5 @@
+// More or less a copy of the Numerical Recipes ODE solver
+
 #pragma once
 #include< vector >
 

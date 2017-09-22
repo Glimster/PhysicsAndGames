@@ -1,7 +1,7 @@
+// More or less a copy of the Numerical Recipes ODE solver
+
 #pragma once
 #include< vector >
-
-#include <Eigen/Core> // TODO, varför behövs denna här och inte i säg PhysicalObject?????
 
 class NR_OdeOutput
 {
@@ -51,7 +51,7 @@ public:
     }
   }
 
-public: // TODO
+public:
   int kmax_;
   int nvar_;
   int nSaved_;

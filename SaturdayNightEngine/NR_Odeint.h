@@ -1,7 +1,9 @@
+// More or less a copy of the Numerical Recipes ODE solver
+
 #pragma once
 #include "NR_OdeOutput.h"
 
-template<class Stepper>
+template< typename Stepper >
 struct NR_Odeint
 {
   static const int MAXSTP = 50000;
@@ -93,8 +95,9 @@ void NR_Odeint<Stepper>::integrate()
         out.save( x, y );
       return;
     }
-    if( abs( s.hnext_ ) <= hmin ) throw("Step size too small in NR_Odeint");
+    if( abs( s.hnext_ ) <= hmin ) 
+      throw( "Step size too small in NR_Odeint" );
     h = s.hnext_;
   }
-  throw ("Too many steps in routine NR_Odeint");
+  throw ( "Too many steps in routine NR_Odeint" );
 }
