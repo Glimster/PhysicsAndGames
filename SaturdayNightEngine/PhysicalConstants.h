@@ -19,7 +19,7 @@ public:
   
   // ---
   static float timeScale; // Scales the pace of time. Game.maxTimeStep_ shall ensure that physics simulation still holds.
-
+  static float softeningLength; // Removes the singularity in the potential energy in N-body computations
 };
 
 }

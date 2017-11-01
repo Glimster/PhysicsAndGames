@@ -19,3 +19,4 @@ float PhysicalConstants::G = 6.67384e-11f; // m^3 kg^-1 s^-2 (el. N m^2 kg^-2)
 
 // ---
 float PhysicalConstants::timeScale = 1.0f;
+float PhysicalConstants::softeningLength = 1.0e-6f; // TODO, hur stor ska denna vara?

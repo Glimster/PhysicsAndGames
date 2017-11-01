@@ -11,6 +11,7 @@ public:
   {
     Eigen::Vector2f F = r;
     F.normalize();
+    // TODO, använd softening length!
     const float force = Phys::PhysicalConstants::kSquared * m2 / r.dot( r );
     F *= -force;
     return F;
@@ -29,6 +30,7 @@ public:
   // Note that the potential energy = 0 for r = oo
   inline static float gravitationalPotentialEnergy( float m1, float m2, const Eigen::Vector2f& r )
   {
+    // TODO, använd softening length!
     return -Phys::PhysicalConstants::kSquared * m1 * m2 / r.norm();
   }
 
@@ -51,5 +53,17 @@ public:
                                               const float m2,
                                               Eigen::Vector2f& v1p,
                                               Eigen::Vector2f& v2p );
+
+  
+  // TODO - ny representation (och precision). Merge:a ihop med ovan!?
+
+  // Nb of particles = stateVector.size() x 4
+  // stateVector[i] = px
+  // stateVector[i + 1] = py
+  // stateVector[i + 2] = vx
+  // stateVector[i + 3] = vy
+  static double computeTotalEnergy2D( const std::vector< double >& stateVector, 
+                                      const std::vector< double >& masses );
+
 };
 

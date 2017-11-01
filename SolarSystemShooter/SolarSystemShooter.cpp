@@ -3,10 +3,6 @@
 #include "stdafx.h"
 #include "Game.h"
 
-//#include "PhysicsTest.h"
-//#include "GUITests.h"
-//#include <gtest/gtest.h>
-
 using namespace std;
 
 int _tmain( int argc, _TCHAR* argv[] )

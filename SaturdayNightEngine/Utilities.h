@@ -10,5 +10,6 @@ namespace Utilities
 
   std::string toString( const sf::Vector2f& vec );
   std::string toString( const Eigen::Vector2f& vec );
+  std::string toString( const Eigen::Vector2d& vec );
 };
 

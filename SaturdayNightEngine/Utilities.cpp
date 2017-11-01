@@ -31,3 +31,9 @@ std::string Utilities::toString( const Eigen::Vector2f& vec )
   string str = "(" + to_string( vec(0) ) + ", " + to_string( vec(1) ) + ")";
   return str;
 }
+
+std::string Utilities::toString( const Eigen::Vector2d& vec )
+{
+  string str = "(" + to_string( vec(0) ) + ", " + to_string( vec(1) ) + ")";
+  return str;
+}

@@ -38,3 +38,26 @@ void Physics::elasticCollisionCircularObject( const Eigen::Vector2f& p1,
   v1p = v1 - 2.0f * m2 / (m1 + m2) * (v1 - v2).dot( normal ) * normal;
   v2p = v2 - 2.0f * m1 / (m1 + m2) * (v2 - v1).dot( normal ) * normal;
 }
+
+double Physics::computeTotalEnergy2D( const std::vector< double >& stateVector,
+                                      const std::vector< double >& masses )
+{
+  double totalEnergy = 0.0;
+  for( size_t i = 0; i < stateVector.size(); i += 4 )
+  {
+    // Kinetic energy
+    const double m1 = masses[i / size_t( 4 )];
+    totalEnergy += m1 * (stateVector[i + 2] * stateVector[i + 2] + stateVector[i + 3] * stateVector[i + 3]) / 2.0;
+
+    // Potential energy
+    for( size_t j = i + 4; j < stateVector.size(); j += 4 ) {
+      const double m2 = masses[j / size_t( 4 )];
+      const double rx = stateVector[i] - stateVector[j];
+      const double ry = stateVector[i + 1] - stateVector[j + 1];
+      // TODO, softening length
+      const double rNorm = sqrt( rx * rx + ry * ry ); // +Phys::PhysicalConstants::softeningLength;
+      totalEnergy += -Phys::PhysicalConstants::kSquared * m1 * m2 / rNorm;
+    }
+  }
+  return totalEnergy;
+}

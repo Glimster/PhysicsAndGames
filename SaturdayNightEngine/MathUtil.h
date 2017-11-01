@@ -6,6 +6,20 @@ class MathUtil
 {
 public:
 
+  // Simple functions
+  template< typename T > 
+  inline static const T& max( const T& a, const T& b )
+  {
+    return b > a ? (b) : (a);
+  }
+
+  template< class T >
+  inline static const T& min( const T& a, const T& b )
+  {
+    return b < a ? (b) : (a);
+  }
+
+
   // Ellipses
   // a - semi major axis
   // b - semi minor axis
@@ -18,16 +32,15 @@ public:
   static float circumferenceEllipse( float a, float b );
   
 
-  // C++11 baby!
+  // Eigen extensions
   template< typename VecType >
-  inline static auto angleBetween( const VecType& v1, VecType& v2 ) -> decltype( v1.norm() )
+  inline static auto angleBetween( const VecType& v1, const VecType& v2 ) -> decltype( v1.norm() )
   {
     return acos( v1.dot( v2 ) / ( v1.norm() * v2.norm() ) );
   }
 
-  // Eigen extensions
   template< typename VecType >
-  inline static auto cross2D( const VecType& v1, VecType& v2 ) -> decltype( v1.norm() )
+  inline static auto cross2D( const VecType& v1, const VecType& v2 ) -> decltype( v1.norm() )
   {
     return abs( v1(0) * v2(1) - v1(1) * v2(0) );
   }

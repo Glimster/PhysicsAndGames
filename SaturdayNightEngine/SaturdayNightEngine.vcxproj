@@ -101,8 +101,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -119,8 +118,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -146,9 +144,11 @@
     <ClCompile Include="GameDataTables.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="Integrator.cpp" />
+    <ClCompile Include="IStepper.cpp" />
     <ClCompile Include="Massive.cpp" />
     <ClCompile Include="MathUtil.cpp" />
     <ClCompile Include="MotionManager.cpp" />
+    <ClCompile Include="NR_OdeOutput.cpp" />
     <ClCompile Include="PhysicalConstants.cpp" />
     <ClCompile Include="PhysicalData.cpp" />
     <ClCompile Include="PhysicalObject.cpp" />
@@ -159,7 +159,11 @@
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="SpriteNode.cpp" />
     <ClCompile Include="StarShip.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="NR_StepperBase.cpp" />
     <ClCompile Include="TextNode.cpp" />
     <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
@@ -173,9 +177,14 @@
     <ClInclude Include="GameDataTables.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="Integrator.h" />
+    <ClInclude Include="IStepper.h" />
     <ClInclude Include="Massive.h" />
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="MotionManager.h" />
+    <ClInclude Include="NR_Odeint.h" />
+    <ClInclude Include="OdeIntegrator.h" />
+    <ClInclude Include="NR_OdeOutput.h" />
+    <ClInclude Include="ODEs.h" />
     <ClInclude Include="PhysicalConstants.h" />
     <ClInclude Include="PhysicalData.h" />
     <ClInclude Include="PhysicalObject.h" />
@@ -185,10 +194,14 @@
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ResourceHolder.h" />
     <ClInclude Include="ResourceIdentifiers.h" />
+    <ClInclude Include="RK4.h" />
     <ClInclude Include="SceneNode.h" />
     <ClInclude Include="SpriteNode.h" />
     <ClInclude Include="StarShip.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="NR_StepperBase.h" />
+    <ClInclude Include="NR_StepperDopr5.h" />
+    <ClInclude Include="EulerMethods.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextNode.h" />
     <ClInclude Include="Utilities.h" />

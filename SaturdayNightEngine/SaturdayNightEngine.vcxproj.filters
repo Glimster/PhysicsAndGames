@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Game utilities">
       <UniqueIdentifier>{7894388c-8832-4abe-8f91-6ecf22a67f22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Math\NumericalRecipes">
+      <UniqueIdentifier>{07d4d9cf-db4f-465b-9068-0570c57f35db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math\NumericalRecipes">
+      <UniqueIdentifier>{e4f8315e-f019-4040-91b2-56c391b3af1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -113,6 +119,15 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Game objects</Filter>
+    </ClCompile>
+    <ClCompile Include="IStepper.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="NR_OdeOutput.cpp">
+      <Filter>Source Files\Math\NumericalRecipes</Filter>
+    </ClCompile>
+    <ClCompile Include="NR_StepperBase.cpp">
+      <Filter>Source Files\Math\NumericalRecipes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +214,33 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Game objects</Filter>
+    </ClInclude>
+    <ClInclude Include="OdeIntegrator.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="RK4.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="NR_Odeint.h">
+      <Filter>Header Files\Math\NumericalRecipes</Filter>
+    </ClInclude>
+    <ClInclude Include="NR_OdeOutput.h">
+      <Filter>Header Files\Math\NumericalRecipes</Filter>
+    </ClInclude>
+    <ClInclude Include="NR_StepperBase.h">
+      <Filter>Header Files\Math\NumericalRecipes</Filter>
+    </ClInclude>
+    <ClInclude Include="NR_StepperDopr5.h">
+      <Filter>Header Files\Math\NumericalRecipes</Filter>
+    </ClInclude>
+    <ClInclude Include="IStepper.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="ODEs.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="EulerMethods.h">
+      <Filter>Header Files\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

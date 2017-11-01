@@ -30,13 +30,12 @@ void GUITests::init( Setup setup )
   case GUITests::Setup::Space:
   {
     dt_ = sf::seconds( 1.0f / 50.0f );
-    timeScale_ = 5.0f;
-    vector< PhysicalData::PlanetData > planetarySystemData;
-    //PhysicalData::setupHeavySunLightPlanet( planetarySystemData );
-    //PhysicalData::setupTwoBodySystem( planetarySystemData );
-    //PhysicalData::setupThreeBodySystem( planetarySystemData );
-    //PhysicalData::setupAlotOfPlanets( planetarySystemData );
-    PhysicalData::setupRealisticSolarSystem( planetarySystemData );
+    timeScale_ = 1.0f;
+    auto planetarySystemData = PhysicalData::setupRealisticSolarSystem();
+    //auto planetarySystemData = PhysicalData::setupHeavySunLightPlanet();
+    //auto planetarySystemData = PhysicalData::setupTwoBodySystem();
+    //auto planetarySystemData = PhysicalData::setupThreeBodySystem();
+    //auto planetarySystemData = PhysicalData::setupAlotOfPlanets();
 
     auto planetData = max_element( planetarySystemData.begin(), planetarySystemData.end(), []
     ( const PhysicalData::PlanetData& pd1, const PhysicalData::PlanetData& pd2 )
@@ -44,7 +43,7 @@ void GUITests::init( Setup setup )
       return pd1.position.norm() < pd2.position.norm(); // TODO, assumes sun in the middle
     } );
     float spaceLength = planetData->position.norm() * 2.0f; // a.u.
-    //spaceLength = 50.0f;
+    // spaceLength = 50.0f;
 
     //auto lowerLeft = Eigen::Vector2f( -spaceLength / 2.0f, -spaceLength / 2.0f );
     //auto upperRight = Eigen::Vector2f( spaceLength / 2.0f, spaceLength / 2.0f );
@@ -55,7 +54,8 @@ void GUITests::init( Setup setup )
     csHandler_ = CoordinateSystemHandler( min( screenWidth, screenHeight ) / spaceLength,
                                           Eigen::Vector2f( screenWidth / 2.0f, screenHeight / 2.0f ) );
 
-    const float height = 10.0f * csHandler_.world2DisplayLength();
+    const float height = 4.0f * csHandler_.world2DisplayLength();
+    //const float height = spaceLength * csHandler_.world2DisplayLength();
     const float width = height * screenWidth / screenHeight;
     view_.setSize( width, height );
     
@@ -79,10 +79,9 @@ void GUITests::init( Setup setup )
       sceneGraph_.attachChild( std::move( layer ) );
     }
 
-    vector< PhysicalData::BallData > ballData;
-    //PhysicalData::setupMovingAndStationaryBall( ballData );
-    //PhysicalData::setupTwoBalls( ballData );
-    PhysicalData::setupALotOfBalls( ballData );
+    auto ballData = PhysicalData::setupALotOfBalls();
+    //auto ballData = PhysicalData::setupMovingAndStationaryBall();
+    //auto ballData = PhysicalData::setupTwoBalls();
     for( auto data : ballData )
     {
       float mass = float( M_PI ) * data.radius * data.radius;
@@ -147,7 +146,7 @@ void GUITests::runSpaceSimulation()
     // Debug
     updateFPSStats_( elapsedAbsoluteTime );
 
-    view_.setCenter( csHandler_.convertToDisplayCS( physicalObjects_[2]->getPosition() ) );
+    //view_.setCenter( csHandler_.convertToDisplayCS( physicalObjects_[2]->getPosition() ) ); // To keep earth in center
     render_();
   }
 }

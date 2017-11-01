@@ -27,9 +27,8 @@ Space::Space( sf::RenderWindow& mainWindow, FontHolder& fontHolder ):
   physicalObjects_(),
   player_()
 {
-  vector< PhysicalData::PlanetData > planetarySystemData;
-  PhysicalData::setupRealisticSolarSystem( planetarySystemData );
-  //PhysicalData::setupPlanetarySystem( planetarySystemData );
+  auto planetarySystemData = PhysicalData::setupRealisticSolarSystem();
+  //auto planetarySystemData = PhysicalData::setupPlanetarySystem();
   
   {
     auto planetData = max_element( planetarySystemData.begin(), planetarySystemData.end(), []

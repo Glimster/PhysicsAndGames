@@ -24,10 +24,13 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicsTest.h">
+    <ClInclude Include="GUITests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUITests.h">
+    <ClInclude Include="PhysicsTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollissionTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,10 +41,13 @@
     <ClCompile Include="SaturdayNightTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsTest.cpp">
+    <ClCompile Include="GUITests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GUITests.cpp">
+    <ClCompile Include="PhysicsTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CollissionTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

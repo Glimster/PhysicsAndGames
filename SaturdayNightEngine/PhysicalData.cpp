@@ -7,8 +7,9 @@
 
 using namespace std;
 
-void PhysicalData::setupHeavySunLightPlanet( vector< PlanetData >& planetData )
+vector< PhysicalData::PlanetData > PhysicalData::setupHeavySunLightPlanet()
 {
+  vector< PlanetData > planetData;
   {
     PlanetData data;
     data.name = "Sun";
@@ -30,10 +31,13 @@ void PhysicalData::setupHeavySunLightPlanet( vector< PlanetData >& planetData )
 
     planetData.push_back( data );
   }
+
+  return planetData;
 }
 
-void PhysicalData::setupTwoBodySystem( vector< PlanetData >& planetData )
+vector< PhysicalData::PlanetData > PhysicalData::setupTwoBodySystem()
 {
+  vector< PlanetData > planetData;
   {
     PlanetData data;
     data.name = "Sun";
@@ -58,10 +62,13 @@ void PhysicalData::setupTwoBodySystem( vector< PlanetData >& planetData )
     //data.velocity = Physics::circularOrbitVelocity( data.position, 1.0f, data.mass );
     planetData.push_back( data );
   }
+
+  return planetData;
 }
 
-void PhysicalData::setupThreeBodySystem( vector< PlanetData >& planetData )
+vector< PhysicalData::PlanetData > PhysicalData::setupThreeBodySystem()
 {
+  vector< PlanetData > planetData;
   {
     PlanetData data;
     data.name = "Sun";
@@ -95,10 +102,13 @@ void PhysicalData::setupThreeBodySystem( vector< PlanetData >& planetData )
     data.position = Eigen::Vector2f( 0.0f, 0.0f );
     planetData.push_back( data );
   }
+
+  return planetData;
 }
 
-void PhysicalData::setupPlanetarySystem( vector< PlanetData >& planetData )
+vector< PhysicalData::PlanetData > PhysicalData::setupPlanetarySystem()
 {
+  vector< PlanetData > planetData;
   {
     PlanetData data;
     data.name = "Sun";
@@ -155,10 +165,14 @@ void PhysicalData::setupPlanetarySystem( vector< PlanetData >& planetData )
     data.velocity = Physics::circularOrbitVelocity( data.position, 2.0f );
     planetData.push_back( data );
   }
+
+  return planetData;
 }
 
-void PhysicalData::setupRealisticSolarSystem( vector< PlanetData >& planetData )
+vector< PhysicalData::PlanetData > PhysicalData::setupRealisticSolarSystem()
 {
+  vector< PlanetData > planetData;
+
   // Data från http://nssdc.gsfc.nasa.gov/planetary/factsheet/
   {
     PlanetData data;
@@ -268,11 +282,13 @@ void PhysicalData::setupRealisticSolarSystem( vector< PlanetData >& planetData )
     data.position = Eigen::Vector2f( -distance, 0.0f );
     planetData.push_back( data );
   }
+
+  return planetData;
 }
 
-void PhysicalData::setupAlotOfPlanets( vector< PlanetData >& planetData )
+vector< PhysicalData::PlanetData > PhysicalData::setupAlotOfPlanets()
 {
-  planetData.clear();
+  vector< PlanetData > planetData;
 
   random_device rd;
   mt19937 gen( rd() );
@@ -294,11 +310,13 @@ void PhysicalData::setupAlotOfPlanets( vector< PlanetData >& planetData )
     data.position = Eigen::Vector2f( randomPosition( gen ), randomPosition( gen ) );
     planetData.push_back( data );
   }
+
+  return planetData;
 }
 
-void PhysicalData::setupMovingAndStationaryBall( vector< BallData >& ballData )
+vector< PhysicalData::BallData > PhysicalData::setupMovingAndStationaryBall()
 {
-  ballData.resize( 2 );
+  vector< BallData > ballData( 2 );
 
   ballData[0].radius = 10.0f;
   ballData[0].position = Eigen::Vector2f( -50.0f, 0.0f );
@@ -307,11 +325,13 @@ void PhysicalData::setupMovingAndStationaryBall( vector< BallData >& ballData )
   ballData[1].radius = 10.0f;
   ballData[1].position = Eigen::Vector2f( 0.0f, 0.0f );
   ballData[1].velocity = Eigen::Vector2f( 0.0f, 0.0f );
+
+  return ballData;
 }
 
-void PhysicalData::setupTwoBalls( vector< BallData >& ballData )
+vector< PhysicalData::BallData > PhysicalData::setupTwoBalls()
 {
-  ballData.resize( 2 );
+  vector< BallData > ballData( 2 );
 
   ballData[0].radius = 20.0f;
   ballData[0].position = Eigen::Vector2f( -100.0f, 15.0f );
@@ -320,11 +340,13 @@ void PhysicalData::setupTwoBalls( vector< BallData >& ballData )
   ballData[1].radius = 10.0f;
   ballData[1].position = Eigen::Vector2f( 0.0f, 0.0f );
   ballData[1].velocity = Eigen::Vector2f( -11.0f, 14.0f );
+
+  return ballData;
 }
 
-void PhysicalData::setupALotOfBalls( vector< BallData >& ballData )
+vector< PhysicalData::BallData > PhysicalData::setupALotOfBalls()
 {
-  ballData.clear();
+  vector< BallData > ballData;
 
   random_device rd;
   mt19937 gen( rd() );
@@ -352,4 +374,6 @@ void PhysicalData::setupALotOfBalls( vector< BallData >& ballData )
     data.position = Eigen::Vector2f( -1000.0f, 0.0f );
     ballData.push_back( data );
   }
+
+  return ballData;
 }
